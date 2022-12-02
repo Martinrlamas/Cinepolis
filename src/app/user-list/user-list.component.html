@@ -1,0 +1,22 @@
+<h3>Tu Lista</h3>
+    <div class="col">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Tus gustos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movie of Likelist$ | async">
+                    <td>{{movie.title}}</td>
+                    <td>
+                        <div>
+                            <button class="btn btn-danger btn-xs" (click)="RemoveToList(movie)">
+                                Quitar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

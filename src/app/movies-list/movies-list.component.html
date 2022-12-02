@@ -1,0 +1,25 @@
+
+<h3>Peliculas</h3>
+<ul  class="d-inline-flex" *ngFor="let movie of movies">
+    <li class="card" style="width: 20rem;">
+        <figure>
+               <img [src]="movie.billboard" style="height: 26rem;" class="card-img-top" [alt]="movie.title">
+            <figcaption>
+                <p>{{movie.description}}</p>
+            </figcaption>
+        </figure>   
+        <div class="card-body">
+            <div *ngIf="movie.premiere == true">
+                <span class="badge text-bg-success">Estreno</span>
+            </div>
+            <p class="card-text d-flex justify-content-between">
+             {{movie.year}}, {{movie.type}}  
+            </p>
+            <p>
+            <app-input-assessment [(points)]="movie.value"></app-input-assessment>
+            Puntuacion: {{movie.value}}/5
+             <button (click)="addToList(movie)" class="btn btn-success">Añadir</button>
+            </p>
+        </div>
+    </li>    
+</ul>
